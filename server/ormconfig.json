@@ -1,0 +1,24 @@
+[
+  {
+    "name": "dev",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "123456",
+    "database": "test_db",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true
+  },
+  {
+    "name": "prod",
+    "type": "mysql",
+    "host": "172.17.0.2",
+    "port": 3306,
+    "username": "root",
+    "password": "123456",
+    "database": "test_db",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true
+  }
+]

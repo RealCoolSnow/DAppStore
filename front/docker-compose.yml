@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    ports:
+      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
