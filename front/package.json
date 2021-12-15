@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-quick-start",
-  "description": "Next.js Quick Start with out-of-the-box features，including TypeScript, Redux, TailwindCSS, axios, i18n, etc.",
-  "version": "0.1.0",
+  "name": "dappstore",
+  "description": "Discover DApps here",
+  "version": "0.0.1",
   "private": true,
   "author": "CoolSnow(coolsnow2020@gmail.com)",
   "license": "MIT",

@@ -1,7 +1,7 @@
 {
-  "name": "nest-simple-server",
+  "name": "dappstore-server",
   "version": "0.0.1",
-  "description": "",
+  "description": "Discover DApps here",
   "private": true,
   "author": "CoolSnow(coolsnow2020@gmail.com)",
   "license": "MIT",

@@ -7,7 +7,7 @@ type Props = {
 const PageTitle = ({ title }: Props) => {
   return (
     <Head>
-      <title>{title} - nextjs-quick-start</title>
+      <title>{title} - DAppStore</title>
     </Head>
   )
 }
