@@ -8,7 +8,6 @@ body > div:first-child,
 div#__next,
 div#__next > div {
   height: 100%;
-  @apply bg-white dark:bg-black;
 }
 
 .container {
