@@ -14,4 +14,7 @@ div#__next > div {
   .btn:active {
     @apply opacity-70;
   }
+  .title-normal {
+    @apply text-lg font-bold;
+  }
 }

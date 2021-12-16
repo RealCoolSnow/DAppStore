@@ -1,5 +1,7 @@
 {
   "home": "Home",
   "discover": "Discover",
-  "categories": "Categories"
+  "categories": "Categories",
+  "highest_ranked": "Highest Ranked",
+  "recently_added": "Recently Added"
 }

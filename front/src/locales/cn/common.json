@@ -1,5 +1,7 @@
 {
   "home": "首页",
   "discover": "发现",
-  "categories": "分类"
+  "categories": "分类",
+  "highest_ranked": "好评榜",
+  "recently_added": "最新添加"
 }

@@ -7,6 +7,8 @@ import FeatureAppList from '@/components/ui/FeatureApp/list'
 import { baseUrl } from '@/config'
 import { AppBaseInfo, HomeData } from '@/types'
 import CategoryList from '@/components/ui/category/list'
+import RankList from '@/components/ui/RankList'
+import RecentAddList from '@/components/ui/RecentAddList'
 
 type Props = {
   data: HomeData
@@ -20,7 +22,7 @@ const Home: NextPage<Props> = ({ data }: Props) => {
     <>
       <PageTitle title={t('home')} />
       <div>
-        <h1 className="text-lg font-bold">{t('discover')}</h1>
+        <h1 className="title-normal">{t('discover')}</h1>
         {/* search */}
         <div className="mt-4">
           <SearchBar onSearch={onSearch} />
@@ -32,6 +34,14 @@ const Home: NextPage<Props> = ({ data }: Props) => {
         {/* category */}
         <div className="mt-4">
           <CategoryList categoryList={data.category_list} />
+        </div>
+        {/* rank */}
+        <div className="mt-4">
+          <RankList />
+        </div>
+        {/* recent add */}
+        <div className="mt-4">
+          <RecentAddList />
         </div>
       </div>
     </>

@@ -12,9 +12,7 @@ const CategoryList = ({ categoryList }: Props) => {
   })
   return (
     <>
-      <div>
-        <h1 className="text-lg font-bold">{t('categories')}</h1>
-      </div>
+      <h1 className="title-normal">{t('categories')}</h1>
       <div className="grid gap-4 grid-cols-3 mt-2 md:grid-cols-7">{list}</div>
     </>
   )
