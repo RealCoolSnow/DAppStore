@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation('common')
   const onSearch = (words: string) => {
     //console.log('onSearch', words)
+    alert(words)
   }
   return (
     <>
