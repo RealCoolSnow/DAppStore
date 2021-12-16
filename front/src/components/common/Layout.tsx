@@ -9,7 +9,10 @@ const Header = () => {
   return (
     <Head>
       <meta name="description" content="DAppStore" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no"
+      />
       <link rel="icon" href="/favicon.ico" />
       <title>DAppStore</title>
     </Head>
@@ -40,15 +43,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <main>
-        <div className="text-right">
-          <LocaleSwitch />
-        </div>
-        <div className="mt-6">
-          <NavBar />
-        </div>
-        <div className="mt-6">{children}</div>
-      </main>
+      <main className="p-2">{children}</main>
       <Footer />
     </>
   )

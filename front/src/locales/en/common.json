@@ -1,8 +1,4 @@
 {
   "home": "Home",
-  "about": "About",
-  "about_page_desc": "This is about page",
-  "footer": {
-    "description": "Code by CoolSnow"
-  }
+  "discover": "Discover"
 }
