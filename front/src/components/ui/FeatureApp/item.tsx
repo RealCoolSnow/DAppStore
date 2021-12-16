@@ -8,7 +8,7 @@ type Props = {
 const FeatureAppItem = ({ appInfo }: Props) => {
   return (
     <a
-      className="snap-center flex flex-col min-w-[16rem]"
+      className="btn snap-center flex flex-col min-w-[16rem]"
       href={appInfo.url}
       target="_blank"
       rel="noreferrer"
@@ -26,7 +26,7 @@ const FeatureAppItem = ({ appInfo }: Props) => {
         />
         <div className="flex-1 p-2">
           <p className="text-lg font-medium">{appInfo.name}</p>
-          <span className="text-sm text-gray-400">{appInfo.desc}</span>
+          <p className="text-sm text-gray-400 leading-5">{appInfo.desc}</p>
         </div>
       </div>
     </a>

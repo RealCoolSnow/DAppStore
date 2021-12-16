@@ -6,6 +6,7 @@ import SearchBar from '@/components/SearchBar'
 import FeatureAppList from '@/components/ui/FeatureApp/list'
 import { baseUrl } from '@/config'
 import { AppBaseInfo, HomeData } from '@/types'
+import CategoryList from '@/components/ui/category/list'
 
 type Props = {
   data: HomeData
@@ -18,7 +19,7 @@ const Home: NextPage<Props> = ({ data }: Props) => {
   return (
     <>
       <PageTitle title={t('home')} />
-      <div className="flex flex-col">
+      <div>
         <h1 className="text-lg font-bold">{t('discover')}</h1>
         {/* search */}
         <div className="mt-4">
@@ -27,6 +28,10 @@ const Home: NextPage<Props> = ({ data }: Props) => {
         {/* feature list */}
         <div className="mt-4">
           <FeatureAppList appList={data.feature_list} />
+        </div>
+        {/* category */}
+        <div className="mt-4">
+          <CategoryList categoryList={data.category_list} />
         </div>
       </div>
     </>
