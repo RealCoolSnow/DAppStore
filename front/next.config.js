@@ -13,6 +13,7 @@ module.exports = {
     // 构建时忽略eslint错误
     ignoreDuringBuilds: false,
   },
+  staticPageGenerationTimeout: 90,
   //自定义webpack
   /*
   webpack: (config, options) => {
