@@ -9,6 +9,9 @@ module.exports = {
       gridTemplateColumns: {
         3: '1fr 1fr 1fr;',
       },
+      colors: {
+        primary: '#4360DF',
+      },
     },
   },
   plugins: [],

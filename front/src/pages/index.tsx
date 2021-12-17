@@ -37,11 +37,11 @@ const Home: NextPage<Props> = ({ data }: Props) => {
         </div>
         {/* rank */}
         <div className="mt-4">
-          <RankList />
+          <RankList appList={data.rank_list} />
         </div>
         {/* recent add */}
         <div className="mt-4">
-          <RecentAddList />
+          <RecentAddList appList={data.recent_add_list} />
         </div>
       </div>
     </>

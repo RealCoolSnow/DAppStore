@@ -14,7 +14,16 @@ export type CategoryInfo = {
   tag?: string
 }
 
+export type RankInfo = {
+  up: number //up vote
+  down: number //down vote
+}
+
+export type AppRankInfo = AppBaseInfo & RankInfo
+
 export type HomeData = {
   feature_list: AppBaseInfo[]
   category_list: CategoryInfo[]
+  rank_list: AppRankInfo[]
+  recent_add_list: AppRankInfo[]
 }

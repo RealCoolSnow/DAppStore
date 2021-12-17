@@ -1,10 +1,22 @@
+import { AppRankInfo } from '@/types'
 import { useTranslation } from 'next-i18next'
+import AppItem from './AppItem'
 
-const RecentAddList = () => {
+type Props = {
+  appList: AppRankInfo[]
+}
+
+const RecentAddList = ({ appList }: Props) => {
   const { t } = useTranslation('common')
+  const list = appList.map((item) => {
+    return <AppItem appInfo={item} key={item.name} />
+  })
   return (
     <>
-      <h1 className="title-normal">{t('recently_added')}</h1>
+      <h1 className="title-normal">{t('recent_add')}</h1>
+      <div className="mt-6 grid gap-8 grid-cols-3 overflow-x-auto snap-x pb-4">
+        {list}
+      </div>
     </>
   )
 }
