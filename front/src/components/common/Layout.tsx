@@ -43,7 +43,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <main className="p-2">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   )

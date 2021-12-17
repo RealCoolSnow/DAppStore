@@ -3,5 +3,9 @@
   "discover": "Discover",
   "categories": "Categories",
   "highest_ranked": "Highest Ranked",
-  "recent_add": "Recently Added"
+  "recent_add": "Recently Added",
+  "footer": {
+    "submit_title": "Submit a DApp",
+    "submit_desc": "Submit your favourite DApp now! No permission required."
+  }
 }

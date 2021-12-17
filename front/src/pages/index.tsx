@@ -1,15 +1,33 @@
-import type { InferGetStaticPropsType, NextPage } from 'next'
+/* eslint-disable @next/next/no-img-element */
+import type { NextPage } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import PageTitle from '@/components/common/PageTitle'
 import SearchBar from '@/components/SearchBar'
 import FeatureAppList from '@/components/ui/FeatureApp/list'
 import { baseUrl } from '@/config'
-import { AppBaseInfo, HomeData } from '@/types'
+import { HomeData } from '@/types'
 import CategoryList from '@/components/ui/category/list'
 import RankList from '@/components/ui/RankList'
 import RecentAddList from '@/components/ui/RecentAddList'
 
+const Footer = () => {
+  const { t } = useTranslation('common')
+  const onSubmit = () => {}
+  return (
+    <div className="mt-6 bg-gray-100 p-6">
+      <div className="flex items-start btn" onClick={onSubmit}>
+        <img src="/svg/add.svg" alt="submit" className="w-10 h-10" />
+        <div className="ml-4">
+          <div className="text-sm font-semibold">
+            {t('footer.submit_title')}
+          </div>
+          <div className="text-sm text-gray-400">{t('footer.submit_desc')}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
 type Props = {
   data: HomeData
 }
@@ -21,7 +39,7 @@ const Home: NextPage<Props> = ({ data }: Props) => {
   return (
     <>
       <PageTitle title={t('home')} />
-      <div>
+      <div className="p-2">
         <h1 className="title-normal">{t('discover')}</h1>
         {/* search */}
         <div className="mt-4">
@@ -44,6 +62,7 @@ const Home: NextPage<Props> = ({ data }: Props) => {
           <RecentAddList appList={data.recent_add_list} />
         </div>
       </div>
+      <Footer />
     </>
   )
 }
