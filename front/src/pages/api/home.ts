@@ -1,4 +1,4 @@
-import { AppBaseInfo, AppRankInfo, CategoryInfo, HomeData } from '@/types'
+import { AppBaseInfo, AppInfo, CategoryInfo, HomeData } from '@/types'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(
@@ -8,9 +8,10 @@ export default function handler(
   const dapp = {
     name: 'Gitcoin Grants',
     desc: 'Gitcoin Grants helps creators grow and sustain their open source projects.',
-    icon: 'https://dap.ps/metadata/image/QmbpwFyCSGhJe7WMU5ttmAcJJLzcoa4WiZ7CMFncTgwfcT',//'https://dap.ps/static/media/matcha_logo.66bd4fb1.png',
+    icon: 'https://dap.ps/metadata/image/QmbpwFyCSGhJe7WMU5ttmAcJJLzcoa4WiZ7CMFncTgwfcT', //'https://dap.ps/static/media/matcha_logo.66bd4fb1.png',
     banner: 'https://dap.ps/static/media/matcha_banner.59887a66.png',
     url: 'https://gitcoin.co/grants',
+    package_name: 'gitcoin_grants',
   }
   const feature_list: AppBaseInfo[] = [
     dapp,
@@ -77,7 +78,7 @@ export default function handler(
       color: 'rgba(255,202,15,.15)',
     },
   ]
-  const dapp2: AppRankInfo = { up: 100, down: 10, ...dapp }
+  const dapp2: AppInfo = { up: 100, down: 10, ...dapp }
   const rank_list = [dapp2, dapp2, dapp2, dapp2, dapp2, dapp2]
   const recent_add_list = [...rank_list, dapp2, dapp2, dapp2]
   res

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppBaseInfo } from '@/types'
+import React from 'react'
 
 type Props = {
   appInfo: AppBaseInfo
@@ -32,4 +33,4 @@ const FeatureAppItem = ({ appInfo }: Props) => {
     </a>
   )
 }
-export default FeatureAppItem
+export default React.memo(FeatureAppItem)

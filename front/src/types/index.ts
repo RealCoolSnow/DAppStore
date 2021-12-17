@@ -2,6 +2,7 @@ export type AppBaseInfo = {
   name: string // app name
   desc: string //app description
   icon: string //icon
+  package_name: string //package name
   banner?: string // banner image
   url?: string // url
 }
@@ -19,11 +20,11 @@ export type RankInfo = {
   down: number //down vote
 }
 
-export type AppRankInfo = AppBaseInfo & RankInfo
+export type AppInfo = AppBaseInfo & RankInfo
 
 export type HomeData = {
   feature_list: AppBaseInfo[]
   category_list: CategoryInfo[]
-  rank_list: AppRankInfo[]
-  recent_add_list: AppRankInfo[]
+  rank_list: AppInfo[]
+  recent_add_list: AppInfo[]
 }

@@ -1,9 +1,9 @@
-import { AppRankInfo } from '@/types'
+import { AppInfo } from '@/types'
 import { useTranslation } from 'next-i18next'
 import AppItem from './AppItem'
 
 type Props = {
-  appList: AppRankInfo[]
+  appList: AppInfo[]
 }
 
 const RecentAddList = ({ appList }: Props) => {

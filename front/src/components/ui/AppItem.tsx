@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { AppRankInfo } from '@/types'
+import { AppInfo } from '@/types'
+import React from 'react'
 
 type Props = {
-  appInfo: AppRankInfo
+  appInfo: AppInfo
   rankIndex?: number
 }
 const AppItem = ({ appInfo, rankIndex }: Props) => {
@@ -41,4 +42,4 @@ const AppItem = ({ appInfo, rankIndex }: Props) => {
     </div>
   )
 }
-export default AppItem
+export default React.memo(AppItem)

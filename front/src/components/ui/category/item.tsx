@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { CategoryInfo } from '@/types'
+import React from 'react'
 
 type Props = {
   category: CategoryInfo
@@ -20,4 +21,4 @@ const CategoryItem = ({ category }: Props) => {
   )
 }
 
-export default CategoryItem
+export default React.memo(CategoryItem)
