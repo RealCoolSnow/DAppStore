@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppInfo } from '@/types'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 type Props = {
@@ -7,8 +8,11 @@ type Props = {
   rankIndex?: number
 }
 const AppItem = ({ appInfo, rankIndex }: Props) => {
+  const router = useRouter()
+
   const showApp = () => {
-    alert(appInfo.url)
+    // alert(appInfo.url)
+    router.push({ pathname: '/app-detail' })
   }
   return (
     <div className="snap-center flex">

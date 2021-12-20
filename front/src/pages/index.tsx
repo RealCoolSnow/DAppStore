@@ -31,7 +31,7 @@ const Footer = () => {
 type Props = {
   data: HomeData
 }
-const Home: NextPage<Props> = ({ data }: Props) => {
+const HomePage: NextPage<Props> = ({ data }: Props) => {
   const { t } = useTranslation('common')
   const onSearch = (words: string) => {
     alert(words)
@@ -84,4 +84,4 @@ export const getStaticProps = async ({ locale }: StaticProps) => {
   }
 }
 
-export default Home
+export default HomePage

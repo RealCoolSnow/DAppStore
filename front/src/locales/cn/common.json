@@ -3,5 +3,12 @@
   "discover": "发现",
   "categories": "分类",
   "highest_ranked": "好评榜",
-  "recent_add": "最新添加"
+  "recent_add": "最新添加",
+  "open": "打开",
+  "description": "描述",
+  "url": "URL",
+  "footer": {
+    "submit_title": "Submit a DApp",
+    "submit_desc": "Submit your favourite DApp now! No permission required."
+  }
 }
