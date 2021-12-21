@@ -17,7 +17,18 @@ export class DAppService {
     return this.categoryRepository.find()
   }
 
-  getDapps(): Promise<Dapp[]> {
-    return this.dappRepository.find()
+  getDapps(where?: {}): Promise<Dapp[]> {
+    return this.dappRepository.find({
+      where,
+      select: [
+        'id',
+        'hash_key',
+        'name',
+        'url',
+        'icon',
+        'description',
+        'category_id',
+      ],
+    })
   }
 }

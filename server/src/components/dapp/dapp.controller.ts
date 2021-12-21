@@ -12,6 +12,8 @@ export class DAppController {
   @Get('home')
   async getHome(): Promise<{}> {
     const category_list = await this.dappService.getCategories()
-    return { category_list }
+    const all_dapps = await this.dappService.getDapps()
+    const feature_dapps = await this.dappService.getDapps({ status: 2 })
+    return { category_list, all_dapps, feature_dapps }
   }
 }

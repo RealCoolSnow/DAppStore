@@ -20,8 +20,11 @@ export class Dapp {
   @Column('varchar', { length: 255 })
   url: string
 
-  @Column('varchar', { length: 255 })
+  @Column('varchar', { length: 255, comment: 'icon image url' })
   icon: string
+
+  @Column('varchar', { length: 255, default: '', comment: 'banner image url' })
+  banner: string
 
   @Column('text')
   description: string
@@ -31,6 +34,15 @@ export class Dapp {
 
   @Column('text')
   extra: string
+
+  @Column('tinyint', { default: 0, comment: '0-normal,1-reviewed,2-feature' })
+  status: number
+
+  @Column('int', { default: 0, comment: 'vote up count' })
+  vote_up: number
+
+  @Column('int', { default: 0, comment: 'vote down count' })
+  vote_down: number
 
   @CreateDateColumn()
   create_time: number
