@@ -41,7 +41,7 @@ export const CATEGORY_LIST: CategoryInfo[] = [
     id: 6,
     name: 'Utilities',
     icon: 'https://dap.ps/static/media/utilities.624c69f9.svg',
-    color: 'rgb(124,218,0)',
+    color: 'rgb(250,101,101)',
   },
   {
     id: 7,
