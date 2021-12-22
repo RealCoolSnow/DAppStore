@@ -6,7 +6,7 @@
 ## Docker deployment
     1. Clone this repository
     2. docker build . -t dappstore-front
-    3. docker run -p 3030:3030 dappstore-front
+    3. docker run -p 3003:3003 dappstore-front
     # or
     docker-compose up -d
 

@@ -3,10 +3,10 @@ services:
   dappstore:
     image: dappstore_front
     environment:
-      - PORT=3030
+      - PORT=3003
       - NODE_ENV=production
     ports:
-      - 3030:3030
+      - 3003:3003
     build:
       context: .
       dockerfile: Dockerfile
