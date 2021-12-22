@@ -5,8 +5,8 @@ type Props = {
   appList: AppBaseInfo[]
 }
 
-const FeatureAppList = (props: Props) => {
-  const list = props.appList.map((item) => {
+const FeatureAppList = ({ appList }: Props) => {
+  const list = (appList || []).map((item) => {
     return <FeatureAppItem appInfo={item} key={item.name} />
   })
   return (

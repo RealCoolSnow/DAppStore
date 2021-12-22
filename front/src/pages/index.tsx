@@ -47,7 +47,7 @@ const HomePage: NextPage<Props> = ({ data }: Props) => {
         </div>
         {/* feature list */}
         <div className="mt-4">
-          <FeatureAppList appList={data.feature_list} />
+          <FeatureAppList appList={data.feature_dapps} />
         </div>
         {/* category */}
         <div className="mt-4">
@@ -73,12 +73,11 @@ type StaticProps = {
 
 export const getStaticProps = async ({ locale }: StaticProps) => {
   // console.log(locale)
-  const res = await fetch(`${baseUrl}/api/home`)
+  const res = await fetch(`${baseUrl}/home`)
   const data = await res.json()
-  // console.log(data)
   return {
     props: {
-      data,
+      data: data['data'],
       ...(await serverSideTranslations(locale, ['common'])),
     },
   }

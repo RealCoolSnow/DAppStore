@@ -16,7 +16,7 @@ const FeatureAppItem = ({ appInfo }: Props) => {
     >
       <img
         src={appInfo.banner || ''}
-        className="w-full h-auto rounded-2xl object-cover"
+        className="w-full h-28 md:h-48 rounded-2xl object-cover"
         alt={appInfo.name}
       />
       <div className="mt-2 flex">
@@ -27,7 +27,9 @@ const FeatureAppItem = ({ appInfo }: Props) => {
         />
         <div className="flex-1 p-2">
           <p className="text-lg font-medium">{appInfo.name}</p>
-          <p className="text-sm text-gray-400 leading-5">{appInfo.desc}</p>
+          <p className="text-sm text-gray-400 leading-5">
+            {appInfo.description}
+          </p>
         </div>
       </div>
     </a>

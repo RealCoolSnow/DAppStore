@@ -3,6 +3,6 @@ import { DAppModule } from './dapp/dapp.module'
 import { UserModule } from './user/user.module'
 
 @Module({
-  imports: [UserModule, DAppModule],
+  imports: [DAppModule],
 })
 export class ComponentsModule {}

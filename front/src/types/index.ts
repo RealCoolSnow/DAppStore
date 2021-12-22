@@ -1,6 +1,6 @@
 export type AppBaseInfo = {
   name: string // app name
-  desc: string //app description
+  description: string //app description
   icon: string //icon
   package_name: string //package name
   banner?: string // banner image
@@ -10,7 +10,6 @@ export type AppBaseInfo = {
 export type CategoryInfo = {
   id: number
   name: string
-  icon: string
   color?: string //color for background|text
   tag?: string
 }
@@ -23,7 +22,7 @@ export type RankInfo = {
 export type AppInfo = AppBaseInfo & RankInfo
 
 export type HomeData = {
-  feature_list: AppBaseInfo[]
+  feature_dapps: AppBaseInfo[]
   category_list: CategoryInfo[]
   rank_list: AppInfo[]
   recent_add_list: AppInfo[]

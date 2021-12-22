@@ -9,7 +9,7 @@ type Props = {
 }
 const CategoryItem = ({ category }: Props) => {
   const mainStyle = {
-    background: rgb2rgba(category.color || '', 0.15)
+    background: rgb2rgba(category.color || '', 0.15),
   }
   return (
     <Link href={`/category/${category.id}`} passHref>
@@ -18,7 +18,7 @@ const CategoryItem = ({ category }: Props) => {
         style={mainStyle}
       >
         <img
-          src={category.icon || ''}
+          src={`/svg/category/${category.tag?.toLowerCase()}.svg`}
           className="w-12 h-12"
           alt={category.name}
         />

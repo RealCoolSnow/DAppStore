@@ -9,7 +9,7 @@ type Props = {
 const RankList = ({ appList }: Props) => {
   const { t } = useTranslation('common')
   let i = 1
-  const list = appList.map((item,index) => {
+  const list = (appList || []).map((item, index) => {
     return <AppItem appInfo={item} rankIndex={i++} key={index} />
   })
   return (

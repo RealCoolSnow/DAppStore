@@ -31,7 +31,7 @@ const AppItem = ({ appInfo, rankIndex }: Props) => {
             {appInfo.name}
           </span>
           <span className="text-sm text-gray-400" onClick={showApp}>
-            {appInfo.desc}
+            {appInfo.description}
           </span>
           <div className="mt-2 flex items-center justify-content">
             <img

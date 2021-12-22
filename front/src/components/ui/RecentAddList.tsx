@@ -8,7 +8,7 @@ type Props = {
 
 const RecentAddList = ({ appList }: Props) => {
   const { t } = useTranslation('common')
-  const list = appList.map((item,index) => {
+  const list = (appList || []).map((item, index) => {
     return <AppItem appInfo={item} key={index} />
   })
   return (

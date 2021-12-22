@@ -7,7 +7,7 @@ type Props = {
 }
 const CategoryList = ({ categoryList }: Props) => {
   const { t } = useTranslation('common')
-  const list = categoryList.map((item) => {
+  const list = (categoryList || []).map((item) => {
     return <CategoryItem key={item.id} category={item} />
   })
   return (

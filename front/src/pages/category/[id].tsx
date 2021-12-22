@@ -13,7 +13,7 @@ type Props = {
 const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
   const [currentId, setCurrentId] = useState(parseInt(id))
   const [expand, setExpand] = useState(false)
-  const current: CategoryInfo = category_list[currentId]
+  const current: CategoryInfo = category_list[currentId - 1]
   console.log(current)
   const currentStyle = {
     background: current.color,
@@ -29,7 +29,11 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
           style={currentStyle}
           onClick={() => setExpand(!expand)}
         >
-          <img src={current.icon} alt={current.name} className="w-12 h-12" />
+          <img
+            src={`/svg/category/${current.tag?.toLowerCase()}.svg`}
+            alt={current.name}
+            className="w-12 h-12"
+          />
           <div className="text-white font-semibold ml-2 text-lg">
             {current.name}
           </div>
@@ -52,13 +56,13 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
                   }}
                 >
                   <img
-                    src={category.icon}
+                    src={`/svg/category/${category.tag?.toLowerCase()}.svg`}
                     alt={category.name}
                     className="w-8 h-8"
                   />
                   <div
                     className={`font-semibold ml-2 opacity-80 ${
-                      index == currentId ? 'text-primary' : 'text-gray-600'
+                      index == currentId - 1 ? 'text-primary' : 'text-gray-600'
                     }`}
                   >
                     {category.name}
@@ -84,11 +88,11 @@ type StaticProps = {
 
 export const getStaticProps = async ({ locale, params }: StaticProps) => {
   console.log(locale, params)
-  const res = await fetch(`${baseUrl}/api/category`)
-  const category_list = await res.json()
+  const res = await fetch(`${baseUrl}/categories`)
+  const data = await res.json()
   return {
     props: {
-      category_list,
+      category_list: data['data'],
       id: params.id,
       ...(await serverSideTranslations(locale, ['common'])),
     },
@@ -96,8 +100,9 @@ export const getStaticProps = async ({ locale, params }: StaticProps) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${baseUrl}/api/category`)
-  const category_list = await res.json()
+  const res = await fetch(`${baseUrl}/categories`)
+  const data = await res.json()
+  const category_list = data['data']
   const paths = category_list.map((category: CategoryInfo) => ({
     params: { id: `${category.id}` },
   }))

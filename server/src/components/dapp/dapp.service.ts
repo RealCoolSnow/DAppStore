@@ -28,6 +28,10 @@ export class DAppService {
         'icon',
         'description',
         'category_id',
+        'status',
+        'vote_up',
+        'vote_down',
+        'banner',
       ],
     })
   }
