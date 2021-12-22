@@ -14,7 +14,7 @@ const AppDetailPage: NextPage<Props> = ({ appInfo }: Props) => {
     icon: 'https://dap.ps/metadata/image/QmbpwFyCSGhJe7WMU5ttmAcJJLzcoa4WiZ7CMFncTgwfcT', //'https://dap.ps/static/media/matcha_logo.66bd4fb1.png',
     banner: 'https://dap.ps/static/media/matcha_banner.59887a66.png',
     url: 'https://gitcoin.co/grants',
-    package_name: 'gitcoin_grants',
+    hash_key: 'xxx',
     up: 100,
     down: 10,
   }
@@ -24,7 +24,7 @@ const AppDetailPage: NextPage<Props> = ({ appInfo }: Props) => {
     <div className="px-2">
       <div className="flex flex-col items-center">
         <img
-          src={appInfo.icon}
+          src={`/icons/${appInfo.hash_key}`}
           className="rounded-full shadow-gray-300 w-24 h-24 mt-16 bg-white shadow-xl"
           alt={appInfo.name}
         />

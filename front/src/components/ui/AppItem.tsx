@@ -21,7 +21,7 @@ const AppItem = ({ appInfo, rankIndex }: Props) => {
       )}
       <div className="px-6 flex w-72">
         <img
-          src={appInfo.icon}
+          src={`/icons/${appInfo.hash_key}`}
           alt={appInfo.name}
           className="w-10 h-10 rounded-full"
           onClick={showApp}

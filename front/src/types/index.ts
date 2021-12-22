@@ -2,7 +2,7 @@ export type AppBaseInfo = {
   name: string // app name
   description: string //app description
   icon: string //icon
-  package_name: string //package name
+  hash_key: string // hash key
   banner?: string // banner image
   url?: string // url
 }

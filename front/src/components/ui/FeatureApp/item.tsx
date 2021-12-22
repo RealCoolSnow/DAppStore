@@ -15,13 +15,13 @@ const FeatureAppItem = ({ appInfo }: Props) => {
       rel="noreferrer"
     >
       <img
-        src={appInfo.banner || ''}
+        src={`/banner/${appInfo.hash_key}.png`}
         className="w-full h-28 md:h-48 rounded-2xl object-cover"
         alt={appInfo.name}
       />
       <div className="mt-2 flex">
         <img
-          src={appInfo.icon || ''}
+          src={`/icons/${appInfo.hash_key}`}
           className="w-10 h-10 rounded-full"
           alt={appInfo.name}
         />

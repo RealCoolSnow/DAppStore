@@ -12,7 +12,7 @@ export default function handler(
     icon: 'https://dap.ps/metadata/image/QmbpwFyCSGhJe7WMU5ttmAcJJLzcoa4WiZ7CMFncTgwfcT', //'https://dap.ps/static/media/matcha_logo.66bd4fb1.png',
     banner: 'https://dap.ps/static/media/matcha_banner.59887a66.png',
     url: 'https://gitcoin.co/grants',
-    package_name: 'gitcoin_grants',
+    hash_key: 'xxx',
   }
   const feature_dapps: AppBaseInfo[] = [
     dapp,
