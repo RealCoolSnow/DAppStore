@@ -1,6 +1,7 @@
 version: '3'
 services:
-  server:
+  dappstore:
+    image: dappstore_server
     environment:
       - PORT=3002
       - NODE_ENV=production
