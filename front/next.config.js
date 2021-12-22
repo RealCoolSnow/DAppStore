@@ -33,7 +33,7 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://dev.yourserver/:path*', // Proxy to Backend
+        destination: 'http://localhost:3002/dapp/:path*', // Proxy to Backend
       },
     ]
   },

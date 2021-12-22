@@ -1,3 +1,4 @@
+import { AppInfo } from '@/types'
 import http, { get } from './http'
 
 export const helloGet = (params?: any, config?: any) =>
@@ -8,3 +9,6 @@ export const helloGet2 = (params?: any, config?: any) =>
 
 export const helloPost = (params?: any, config?: any) =>
   http.post('hello', params, config)
+
+export const getDappsByCategory = (category_id: number) =>
+  get<AppInfo[]>(`dapp_by_category/${category_id}`)

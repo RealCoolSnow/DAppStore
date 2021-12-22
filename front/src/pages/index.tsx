@@ -54,13 +54,17 @@ const HomePage: NextPage<Props> = ({ data }: Props) => {
           <CategoryList categoryList={data.category_list} />
         </div>
         {/* rank */}
-        <div className="mt-4">
-          <RankList appList={data.rank_list} />
-        </div>
+        {data.rank_list && (
+          <div className="mt-4">
+            <RankList appList={data.rank_list} />
+          </div>
+        )}
         {/* recent add */}
-        <div className="mt-4">
-          <RecentAddList appList={data.recent_add_list} />
-        </div>
+        {data.recent_add_list && (
+          <div className="mt-4">
+            <RecentAddList appList={data.recent_add_list} />
+          </div>
+        )}
       </div>
       <Footer />
     </>

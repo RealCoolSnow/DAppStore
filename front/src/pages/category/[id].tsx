@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { getDappsByCategory } from '@/api/common'
+import Loading from '@/components/Loading'
+import AppItem from '@/components/ui/AppItem'
 import { baseUrl } from '@/config'
-import { CategoryInfo } from '@/types'
+import { AppInfo, CategoryInfo } from '@/types'
 import { GetStaticPaths, NextPage } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Props = {
   id: string
@@ -13,10 +16,43 @@ type Props = {
 const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
   const [currentId, setCurrentId] = useState(parseInt(id))
   const [expand, setExpand] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [dapps, setDapps] = useState<AppInfo[]>([])
   const current: CategoryInfo = category_list[currentId - 1]
-  console.log(current)
   const currentStyle = {
     background: current.color,
+  }
+  useEffect(() => {
+    console.log('currentId', currentId)
+    setLoading(true)
+    getDappsByCategory(currentId)
+      .then((res) => {
+        setLoading(false)
+        console.log('getDappsByCategory', res)
+        setDapps(res.data || [])
+      })
+      .catch((err) => {
+        setLoading(false)
+      })
+  }, [currentId])
+  useEffect(() => {
+    return () => {
+      setDapps([])
+    }
+  }, [])
+  const AppListView = () => {
+    if (loading) {
+      return (
+        <div className="w-full h-screen flex justify-center items-center">
+          <Loading />
+        </div>
+      )
+    } else {
+      const list = (dapps || []).map((item, index) => {
+        return <AppItem appInfo={item} key={index} />
+      })
+      return <div className="mt-20">{list}</div>
+    }
   }
   return (
     <div>
@@ -73,6 +109,7 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
           </div>
         )}
       </div>
+      <AppListView />
     </div>
   )
 }

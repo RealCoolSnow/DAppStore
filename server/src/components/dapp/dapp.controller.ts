@@ -1,6 +1,7 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Param } from '@nestjs/common'
 import { DAppService } from './dapp.service'
 import { Category } from './entity/category.entity'
+import { Dapp } from './entity/dapp.entity'
 
 @Controller('dapp')
 export class DAppController {
@@ -15,5 +16,10 @@ export class DAppController {
     const all_dapps = await this.dappService.getDapps()
     const feature_dapps = await this.dappService.getDapps({ status: 2 })
     return { category_list, all_dapps, feature_dapps }
+  }
+  @Get('dapp_by_category/:id')
+  async getDappByCategory(@Param('id') id: number): Promise<Dapp[]> {
+    const list = await this.dappService.getDapps({ category_id: id })
+    return list
   }
 }
