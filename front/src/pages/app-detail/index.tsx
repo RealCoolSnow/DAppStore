@@ -10,7 +10,7 @@ type Props = {
 const AppDetailPage: NextPage<Props> = ({ appInfo }: Props) => {
   const dapp = {
     name: 'Gitcoin Grants',
-    desc: 'Gitcoin Grants helps creators grow and sustain their open source projects.',
+    description: 'Gitcoin Grants helps creators grow and sustain their open source projects.',
     icon: 'https://dap.ps/metadata/image/QmbpwFyCSGhJe7WMU5ttmAcJJLzcoa4WiZ7CMFncTgwfcT', //'https://dap.ps/static/media/matcha_logo.66bd4fb1.png',
     banner: 'https://dap.ps/static/media/matcha_banner.59887a66.png',
     url: 'https://gitcoin.co/grants',
@@ -41,7 +41,7 @@ const AppDetailPage: NextPage<Props> = ({ appInfo }: Props) => {
       </div>
       <div className="bg-gray-100 h-px w-full mt-4"></div>
       <div className="mt-2 text-sm text-gray-400">{t('description')}</div>
-      <div>{appInfo.desc}</div>
+      <div>{appInfo.description}</div>
       <div className="bg-gray-100 h-px w-full mt-4"></div>
       <div className="mt-2 text-sm text-gray-400">{t('url')}</div>
       <a
