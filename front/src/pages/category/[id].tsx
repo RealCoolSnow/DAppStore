@@ -34,7 +34,7 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
       .catch((err) => {
         setLoading(false)
       })
-  }, [id])
+  }, [currentId])
   useEffect(() => {
     return () => {
       setDapps([])
