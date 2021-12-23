@@ -22,4 +22,9 @@ export class DAppController {
     const list = await this.dappService.getDapps({ category_id: id })
     return list
   }
+  @Get('dapp_by_key/:key')
+  async getDappByKey(@Param('key') key: string): Promise<Dapp[]> {
+    const list = await this.dappService.getDapps({ hash_key: key })
+    return list
+  }
 }

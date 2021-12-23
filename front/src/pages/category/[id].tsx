@@ -6,6 +6,7 @@ import { baseUrl } from '@/config'
 import { AppInfo, CategoryInfo } from '@/types'
 import { GetStaticPaths, NextPage } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 type Props = {
@@ -14,9 +15,10 @@ type Props = {
 }
 
 const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
-  const [currentId, setCurrentId] = useState(parseInt(id))
+  const router = useRouter()
+  const currentId = parseInt(id)
   const [expand, setExpand] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [dapps, setDapps] = useState<AppInfo[]>([])
   const current: CategoryInfo = category_list[currentId - 1]
   const currentStyle = {
@@ -32,7 +34,7 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
       .catch((err) => {
         setLoading(false)
       })
-  }, [currentId])
+  }, [id])
   useEffect(() => {
     return () => {
       setDapps([])
@@ -89,8 +91,8 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
                   key={category.id}
                   className="flex my-1 items-center btn"
                   onClick={() => {
-                    setCurrentId(category.id)
                     setExpand(false)
+                    router.replace({ pathname: `/category/${category.id}` })
                   }}
                 >
                   <img

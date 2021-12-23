@@ -5,6 +5,9 @@ export type AppBaseInfo = {
   hash_key: string // hash key
   banner?: string // banner image
   url?: string // url
+  category_id?: number
+  category_color?: string
+  category_name?: string
 }
 
 export type CategoryInfo = {

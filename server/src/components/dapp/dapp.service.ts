@@ -18,21 +18,27 @@ export class DAppService {
   }
 
   getDapps(where?: {}): Promise<Dapp[]> {
-    return this.dappRepository.find({
-      where,
-      select: [
-        'id',
-        'hash_key',
-        'name',
-        'url',
-        'icon',
-        'description',
-        'category_id',
-        'status',
-        'vote_up',
-        'vote_down',
-        'banner',
-      ],
-    })
+    return this.dappRepository
+      .createQueryBuilder()
+      .leftJoinAndSelect(Category, 'category', 'dapp.category_id=category.id')
+      .where(where)
+      .select(
+        `
+      dapp.id as id,
+      dapp.hash_key as hash_key,
+      dapp.name as name,
+      dapp.url as url,
+      dapp.icon as icon,
+      dapp.description as description,
+      dapp.category_id as category_id,
+      dapp.status as status,
+      dapp.vote_up as vote_up,
+      dapp.vote_down as vote_down,
+      dapp.banner as banner,
+      category.name as category_name,
+      category.color as category_color
+      `
+      )
+      .getRawMany()
   }
 }

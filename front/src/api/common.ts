@@ -12,3 +12,6 @@ export const helloPost = (params?: any, config?: any) =>
 
 export const getDappsByCategory = (category_id: number) =>
   get<AppInfo[]>(`dapp_by_category/${category_id}`)
+
+export const getDappByKey = (hash_key: string) =>
+  get<AppInfo[]>(`dapp_by_key/${hash_key}`)

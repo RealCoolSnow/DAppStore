@@ -13,7 +13,12 @@ const AppItem = ({ appInfo, rankIndex, singleLine }: Props) => {
 
   const showApp = () => {
     // alert(appInfo.url)
-    router.push({ pathname: '/app-detail' })
+    router.push({
+      pathname: `/app-detail`,
+      query: {
+        key: appInfo.hash_key,
+      },
+    })
   }
   return (
     <div className="snap-center flex">
