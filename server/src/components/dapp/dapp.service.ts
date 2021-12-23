@@ -19,7 +19,7 @@ export class DAppService {
 
   getDapps(where?: string, whereArgs?: {}): Promise<Dapp[]> {
     return this.dappRepository
-      .createQueryBuilder()
+      .createQueryBuilder('dapp')
       .leftJoinAndSelect(Category, 'category', 'dapp.category_id=category.id')
       .where(where, whereArgs)
       .select(
