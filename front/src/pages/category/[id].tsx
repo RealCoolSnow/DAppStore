@@ -23,12 +23,10 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
     background: current.color,
   }
   useEffect(() => {
-    console.log('currentId', currentId)
     setLoading(true)
     getDappsByCategory(currentId)
       .then((res) => {
         setLoading(false)
-        console.log('getDappsByCategory', res)
         setDapps(res.data || [])
       })
       .catch((err) => {
@@ -49,7 +47,11 @@ const CategoryPage: NextPage<Props> = ({ id, category_list }: Props) => {
       )
     } else {
       const list = (dapps || []).map((item, index) => {
-        return <AppItem appInfo={item} key={index} />
+        return (
+          <div key={index} className="mt-2 border-b-gray-200 border-b pb-2">
+            <AppItem appInfo={item} singleLine={true} />
+          </div>
+        )
       })
       return <div className="mt-20">{list}</div>
     }

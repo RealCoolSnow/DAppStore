@@ -6,8 +6,9 @@ import React from 'react'
 type Props = {
   appInfo: AppInfo
   rankIndex?: number
+  singleLine?: boolean
 }
-const AppItem = ({ appInfo, rankIndex }: Props) => {
+const AppItem = ({ appInfo, rankIndex, singleLine }: Props) => {
   const router = useRouter()
 
   const showApp = () => {
@@ -19,7 +20,7 @@ const AppItem = ({ appInfo, rankIndex }: Props) => {
       {rankIndex && rankIndex > 0 && (
         <div className="mt-2 text-sm text-gray-500">{rankIndex}</div>
       )}
-      <div className="px-6 flex w-72">
+      <div className={`px-6 flex ${singleLine ? 'w-full' : 'w-72'}`}>
         <img
           src={`/icons/${appInfo.hash_key}`}
           alt={appInfo.name}
