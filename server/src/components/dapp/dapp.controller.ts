@@ -13,18 +13,21 @@ export class DAppController {
   @Get('home')
   async getHome(): Promise<{}> {
     const category_list = await this.dappService.getCategories()
-    const all_dapps = await this.dappService.getDapps()
-    const feature_dapps = await this.dappService.getDapps({ 'dapp.status': 2 })
+    const all_dapps = await this.dappService.getDapps('1=1')
+    const feature_dapps = await this.dappService.getDapps(
+      'dapp.status=:status',
+      { status: 2 }
+    )
     return { category_list, all_dapps, feature_dapps }
   }
   @Get('dapp_by_category/:id')
   async getDappByCategory(@Param('id') id: number): Promise<Dapp[]> {
-    const list = await this.dappService.getDapps({ 'dapp.category_id': id })
+    const list = await this.dappService.getDapps('dapp.category_id=:id', { id })
     return list
   }
   @Get('dapp_by_key/:key')
   async getDappByKey(@Param('key') key: string): Promise<Dapp[]> {
-    const list = await this.dappService.getDapps({ 'dapp.hash_key': key })
+    const list = await this.dappService.getDapps('dapp.hash_key=:key', { key })
     return list
   }
 }

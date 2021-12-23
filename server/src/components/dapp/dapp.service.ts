@@ -17,11 +17,11 @@ export class DAppService {
     return this.categoryRepository.find()
   }
 
-  getDapps(where?: {}): Promise<Dapp[]> {
+  getDapps(where?: string, whereArgs?: {}): Promise<Dapp[]> {
     return this.dappRepository
       .createQueryBuilder()
       .leftJoinAndSelect(Category, 'category', 'dapp.category_id=category.id')
-      .where(where)
+      .where(where, whereArgs)
       .select(
         `
       dapp.id as id,
