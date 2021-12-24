@@ -13,7 +13,9 @@ import RecentAddList from '@/components/ui/RecentAddList'
 
 const Footer = () => {
   const { t } = useTranslation('common')
-  const onSubmit = () => {}
+  const onSubmit = () => {
+    location.href ="mailto:coolsnow2020@gmail.com?subject=Submit a Dapp";
+  }
   return (
     <div className="mt-6 bg-gray-100 p-6">
       <div className="flex items-start btn" onClick={onSubmit}>
