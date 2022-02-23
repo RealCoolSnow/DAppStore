@@ -22,12 +22,17 @@ export class DAppController {
   }
   @Get('dapp_by_category/:id')
   async getDappByCategory(@Param('id') id: number): Promise<Dapp[]> {
-    const list = await this.dappService.getDapps('dapp.category_id=:id', { id })
-    return list
+    return await this.dappService.getDapps('dapp.category_id=:id', { id })
   }
   @Get('dapp_by_key/:key')
   async getDappByKey(@Param('key') key: string): Promise<Dapp[]> {
-    const list = await this.dappService.getDapps('dapp.hash_key=:key', { key })
+    return await this.dappService.getDapps('dapp.hash_key=:key', { key })
+  }
+  @Get('search/:keyword')
+  async search(@Param('keyword') keyword: string): Promise<Dapp[]> {
+    const list = await this.dappService.getDapps('dapp.name like :keyword', {
+      keyword: `%${keyword}%`,
+    })
     return list
   }
 }

@@ -15,3 +15,5 @@ export const getDappsByCategory = (category_id: number) =>
 
 export const getDappByKey = (hash_key: string) =>
   get<AppInfo[]>(`dapp_by_key/${hash_key}`)
+
+export const searchDapp = (keyword: string) => get<AppInfo[]>(`search/${keyword}`)

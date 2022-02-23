@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
@@ -14,6 +15,7 @@ export class Dapp {
   @Column('varchar', { length: 128 })
   hash_key: string
 
+  @Index()
   @Column('varchar', { length: 128 })
   name: string
 

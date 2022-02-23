@@ -10,11 +10,12 @@ import { HomeData } from '@/types'
 import CategoryList from '@/components/ui/category/list'
 import RankList from '@/components/ui/RankList'
 import RecentAddList from '@/components/ui/RecentAddList'
+import { searchDapp } from '@/api/common'
 
 const Footer = () => {
   const { t } = useTranslation('common')
   const onSubmit = () => {
-    location.href ="mailto:coolsnow2020@gmail.com?subject=Submit a Dapp";
+    location.href = 'mailto:coolsnow2020@gmail.com?subject=Submit a Dapp'
   }
   return (
     <div className="mt-6 bg-gray-100 p-6">
@@ -38,6 +39,12 @@ const HomePage: NextPage<Props> = ({ data }: Props) => {
   const onSearch = (words: string) => {
     alert(words)
   }
+  const onSearchChange = async (words: string) => {
+    if (words && words.length > 0) {
+      const list = await searchDapp(words)
+      console.log(words, list)
+    }
+  }
   return (
     <>
       <PageTitle title={t('home')} />
@@ -45,7 +52,7 @@ const HomePage: NextPage<Props> = ({ data }: Props) => {
         <h1 className="title-normal">{t('discover')}</h1>
         {/* search */}
         <div className="mt-4">
-          <SearchBar onSearch={onSearch} />
+          <SearchBar onSearch={onSearch} onChange={onSearchChange} />
         </div>
         {/* feature list */}
         <div className="mt-4">

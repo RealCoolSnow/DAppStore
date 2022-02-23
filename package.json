@@ -1,0 +1,21 @@
+{
+  "name": "dappstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:front": "pnpm run dev --filter \"front\"",
+    "dev:server": "pnpm run dev --filter \"server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealCoolSnow/DAppStore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RealCoolSnow/DAppStore/issues"
+  },
+  "homepage": "https://github.com/RealCoolSnow/DAppStore#readme"
+}
