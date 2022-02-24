@@ -5,7 +5,7 @@
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "123456",
+    "password": "xiaofengMUmu@0927",
     "database": "dappstore",
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
@@ -16,7 +16,7 @@
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "123456",
+    "password": "xiaofengMUmu@0927",
     "database": "dappstore",
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true

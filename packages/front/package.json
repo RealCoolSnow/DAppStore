@@ -1,16 +1,20 @@
 {
   "name": "front",
-  "description": "Discover DApps here",
   "version": "0.0.1",
   "private": true,
-  "author": "CoolSnow(coolsnow2020@gmail.com)",
+  "description": "Discover DApps here",
   "license": "MIT",
+  "author": "CoolSnow(coolsnow2020@gmail.com)",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "export": "next build && next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "dependencies": {
     "@rematch/core": "^2.2.0",
@@ -21,6 +25,7 @@
     "next-i18next": "^9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hooks": "workspace:*",
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
@@ -32,9 +37,5 @@
     "postcss": "latest",
     "tailwindcss": "^3.0.0",
     "typescript": "^4.4.2"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
   }
 }

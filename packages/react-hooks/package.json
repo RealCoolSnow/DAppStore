@@ -1,0 +1,35 @@
+{
+  "name": "react-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "./lib",
+  "files": [
+    "esm",
+    "lib"
+  ],
+  "scripts": {
+    "build": "rimraf lib && rimraf esm && npm run build:cjs && npm run build:es",
+    "build:cjs": "tsc",
+    "build:es": "tsc -m esNext --outDir esm",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  }
+}

@@ -1,5 +1,7 @@
+import { searchDapp } from '@/api/common'
 import Image from 'next/image'
 import { ChangeEvent, useEffect, useState } from 'react'
+import { useDebouncedCallback } from 'react-hooks'
 
 type Props = {
   onSearch: (words: string) => void
@@ -9,19 +11,26 @@ type Props = {
 const SearchBar = ({ onSearch, onChange, placeholder }: Props) => {
   const [words, setWords] = useState('')
   const [focus, setFocus] = useState(false)
-
+  const onSuggest = async () => {
+    if (words && words.length > 0) {
+      const list = await searchDapp(words)
+      console.log(words, list)
+    }
+  }
+  const suggest = useDebouncedCallback(onSuggest, 100)
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const words = e.target.value
     setWords(words)
     if (onChange) {
       onChange(words)
     }
+    suggest()
   }
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      onSearch(words)
-      setWords('')
-    }
+    // if (e.key === 'Enter') {
+    //   onSearch(words)
+    //   setWords('')
+    // }
   }
   return (
     <div
