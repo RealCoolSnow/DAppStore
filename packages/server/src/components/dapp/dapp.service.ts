@@ -17,7 +17,7 @@ export class DAppService {
     return this.categoryRepository.find()
   }
 
-  getDapps(where?: string, whereArgs?: {}): Promise<Dapp[]> {
+  getDapps(where?: string, whereArgs?: {}, limit?: number): Promise<Dapp[]> {
     return this.dappRepository
       .createQueryBuilder('dapp')
       .leftJoinAndSelect(Category, 'category', 'dapp.category_id=category.id')
@@ -39,6 +39,7 @@ export class DAppService {
       category.color as category_color
       `
       )
+      .limit(limit)
       .getRawMany()
   }
 }

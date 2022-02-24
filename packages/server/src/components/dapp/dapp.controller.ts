@@ -30,9 +30,13 @@ export class DAppController {
   }
   @Get('search/:keyword')
   async search(@Param('keyword') keyword: string): Promise<Dapp[]> {
-    const list = await this.dappService.getDapps('dapp.name like :keyword', {
-      keyword: `%${keyword}%`,
-    })
+    const list = await this.dappService.getDapps(
+      'dapp.name like :keyword',
+      {
+        keyword: `%${keyword}%`,
+      },
+      20
+    )
     return list
   }
 }

@@ -14,6 +14,8 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "build:react-hooks": "pnpm run build --filter \"react-hooks\"",
+    "build:front": "pnpm build:react-hooks && pnpm run build --filter \"front\"",
     "dev:front": "pnpm run dev --filter \"front\"",
     "dev:server": "pnpm run dev --filter \"server\"",
     "sort": "npx sort-package-json \"package.json\" \"packages/*/package.json\"",
