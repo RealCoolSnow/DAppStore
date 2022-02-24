@@ -16,7 +16,7 @@
   "scripts": {
     "build:front": "pnpm build:react-hooks && pnpm run build --filter \"front\"",
     "build:server": "pnpm run build --filter \"server\"",
-    "build": "run-s build:server build:front",
+    "build": "npm run build:server && npm run build:front",
     "build:react-hooks": "pnpm run build --filter \"react-hooks\"",
     "dev:front": "pnpm run dev --filter \"front\"",
     "dev:server": "pnpm run dev --filter \"server\"",
