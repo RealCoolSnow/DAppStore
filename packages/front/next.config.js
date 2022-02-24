@@ -14,6 +14,7 @@ module.exports = {
     ignoreDuringBuilds: false,
   },
   staticPageGenerationTimeout: 90,
+  swcMinify: false,
   //自定义webpack
   /*
   webpack: (config, options) => {
