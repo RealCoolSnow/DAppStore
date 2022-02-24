@@ -14,14 +14,46 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "build:react-hooks": "pnpm run build --filter \"react-hooks\"",
     "build:front": "pnpm build:react-hooks && pnpm run build --filter \"front\"",
+    "build:react-hooks": "pnpm run build --filter \"react-hooks\"",
     "dev:front": "pnpm run dev --filter \"front\"",
     "dev:server": "pnpm run dev --filter \"server\"",
     "sort": "npx sort-package-json \"package.json\" \"packages/*/package.json\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "@types/jest": "27.4.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.3",
+    "turbo": "^1.1.3"
+  },
+  "turbo": {
+    "npmClient": "pnpm",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**"
+        ]
+      },
+      "deploy": {
+        "dependsOn": [
+          "build"
+        ]
+      },
+      "dev": {
+        "cache": false
+      },
+      "test": {
+        "dependsOn": [
+          "^test"
+        ]
+      }
+    }
   }
 }
