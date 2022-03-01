@@ -92,7 +92,7 @@ export default function useDebouncedCallback<T extends (...args: any[]) => Retur
 ): DebouncedState<T> {
   const lastCallTime = useRef(null);
   const lastInvokeTime = useRef(0);
-  const timerId = useRef(null);
+  const timerId = useRef<any>();
   const lastArgs = useRef<unknown[]>([]);
   const lastThis = useRef<unknown>();
   const result = useRef<ReturnType<T>>();
@@ -108,13 +108,13 @@ export default function useDebouncedCallback<T extends (...args: any[]) => Retur
     throw new TypeError('Expected a function');
   }
 
-  wait = +wait || 0;
+  wait = +(wait || 0);
   options = options || {};
 
   const leading = !!options.leading;
   const trailing = 'trailing' in options ? !!options.trailing : true; // `true` by default
   const maxing = 'maxWait' in options;
-  const maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : null;
+  const maxWait = maxing ? Math.max(+(options.maxWait || 0), wait) : null;
 
   useEffect(() => {
     mounted.current = true;
@@ -138,13 +138,13 @@ export default function useDebouncedCallback<T extends (...args: any[]) => Retur
       const args = lastArgs.current;
       const thisArg = lastThis.current;
 
-      lastArgs.current = lastThis.current = null;
+      lastArgs.current = lastThis.current = [];
       lastInvokeTime.current = time;
       return (result.current = funcRef.current.apply(thisArg, args));
     };
 
     const startTimer = (pendingFunc: () => void, wait: number) => {
-      if (useRAF) cancelAnimationFrame(timerId.current);
+      if (useRAF) cancelAnimationFrame(timerId.current||0);
       timerId.current = useRAF ? requestAnimationFrame(pendingFunc) : setTimeout(pendingFunc, wait);
     };
 

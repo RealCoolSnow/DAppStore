@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export type useImageProps = {
   srcList: string | string[];
@@ -38,7 +38,7 @@ const promiseFind = (
       .reduce((p, src) => {
         return p.catch(() => {
           if (!done) return queueNext(src);
-          return;
+          return void 0;
         });
       }, firstPromise)
       .catch(reject);
