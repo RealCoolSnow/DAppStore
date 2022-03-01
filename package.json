@@ -19,9 +19,11 @@
     "build:react-hooks": "pnpm run build --filter \"react-hooks\"",
     "build:server": "pnpm run build --filter \"server\"",
     "dev:front": "pnpm run dev --filter \"front\"",
+    "dev:react-hooks-example": "pnpm run dev --filter \"react-hooks-example\"",
     "dev:server": "pnpm run dev --filter \"server\"",
     "sort": "npx sort-package-json \"package.json\" \"packages/*/package.json\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:react-hooks": "pnpm run test --filter \"react-hooks\""
   },
   "devDependencies": {
     "@types/jest": "27.4.1",
